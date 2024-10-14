@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Slider with Video Background</title>
+    <link rel="stylesheet" href="output.css">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .slider {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .list {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .item {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .item img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            animation: pop-up 0.8s ease-in-out;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            animation: pop-up 0.8s ease-in-out;
+        }
+
+        .desc {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #333;
+            font-family: 'Dancing Script', cursive;
+            animation: pop-up 0.8s ease-in-out;
+        }
+
+        @keyframes pop-up {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .arrows {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .arrows button {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .arrows button:hover {
+            background-color: #e91e63;
+        }
+
+        .arrows button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .slider {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .desc {
+                font-size: 0.9rem;
+            }
+
+            .arrows button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .slider {
+                max-width: 500px;
+                padding: 30px;
+            }
+
+            .item img {
+                max-width: 400px;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .desc {
+                font-size: 1.2rem;
+            }
+
+            .arrows button {
+                padding: 12px 24px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop>
+        <source src="img/vid1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="slider">
+        <div class="list">
+            <div class="item">
+                <img src="/img/popup.gif" alt="Fun GIF">
+                <div class="title">🎁🎉🎈</div>
+                <div class="desc">ciee tanggal 16 nihh</div>
+            </div>
+            <div class="item">
+                <img src="/img/img1.gif" alt="Cool GIF">
+                <div class="title">🤘😛🤘</div>
+                <div class="desc">selamatt ulangg tahunnn</div>
+            </div>
+            <div class="item">
+                <img src="/img/img3.gif" alt="Awesome GIF">
+                <div class="title">💌</div>
+                <div class="desc">panjang umurr pokonya dimudahin segalaanyaa termasuk kuliahnyaa yaa</div>
+            </div>
+            <div class="item">
+                <img src="/img/img9.gif" alt="Awesome GIF">
+                <div class="title">evos 9lory</div>
+                <div class="desc">jangann lupaa sarapann sama bekelnya dibawaa yaa.</div>
+            </div>
+            <div class="item">
+                <img src="/img/img2.gif" alt="Awesome GIF">
+                <div class="title">🧔🏿👮🏻‍♂️🚓🚨</div>
+                <div class="desc">udah ulangg tahunn mahh pasti gabakal betee betee lagi dongg.</div>
+            </div>
+            <div class="item">
+                <img src="/img/img8.gif" alt="Awesome GIF">
+                <div class="title">❤❤</div>
+                <div class="desc">okee dehh wish u all the besttt okayyy💗.</div>
+            </div>
+
+            <div class="item">
+                <img src="/img/img10.gif" alt="Awesome GIF">
+                <div class="title">🐸🐻</div>
+                <div class="desc">i'll be here🤍.</div>
+            </div>
+
+            <div class="item">
+                <img src="/img/img11.png" alt="Awesome GIF">
+                <div class="title">✈🏢🏢</div>
+                <div class="desc">bro ini benar benar sigma</div>
+            </div>
+        </div>
+
+
+        <div class="arrows">
+            <button id="prev" disabled>&lt;</button>
+            <button id="next">&gt;</button>
+        </div>
+    </div>
+    <script>
+        const slider = document.querySelector('.list');
+        const items = document.querySelectorAll('.item');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentIndex = 0;
+        let isTransitioning = false;
+
+        function triggerPopUpAnimation(item) {
+            const gif = item.querySelector('img');
+            const title = item.querySelector('.title');
+            const desc = item.querySelector('.desc');
+
+            gif.style.animation = 'none';
+            title.style.animation = 'none';
+            desc.style.animation = 'none';
+
+            void gif.offsetWidth;
+            void title.offsetWidth;
+            void desc.offsetWidth;
+
+            gif.style.animation = 'pop-up 0.8s ease-in-out';
+            title.style.animation = 'pop-up 0.8s ease-in-out';
+            desc.style.animation = 'pop-up 1.2s ease-in-out';
+        }
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            isTransitioning = true;
+            triggerPopUpAnimation(items[currentIndex]);
+
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex === items.length - 1;
+
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (!isTransitioning && currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (!isTransitioning && currentIndex < items.length - 1) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+    </script>
+</body>
+
+</html>
